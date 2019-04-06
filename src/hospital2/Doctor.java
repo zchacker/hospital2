@@ -1,8 +1,7 @@
-
 package hospital2;
 
+public class Doctor extends Person implements Comparable<Doctor> {
 
-public class Doctor extends Person{
     String specialty;
     int rank;
     Nurse nurse;
@@ -41,5 +40,17 @@ public class Doctor extends Person{
         this.nurse = nurse;
     }
 
-    
+    @Override
+    public int compareTo(Doctor candidate) {
+        if (this.getSalary() < candidate.getSalary()) {
+            return -1;
+        } else {
+            if (this.getSalary() == candidate.getSalary()) {
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+    }
+
 }
